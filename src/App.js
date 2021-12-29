@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard';
 import Nutrix from './components/Nutrix';
 import HistoryRecord from './components/HistoryRecord';
 import Contact from './components/Contact'
+import Homepage from './components/Homepage';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
     <TopNav handleLogout={handleLogout} /> 
 
      <Routes>
+       <Route path="/" element={ <Homepage /> } />
        <Route path="/login" element={ <Login handleLogin={handleLogin} /> } />
        <Route path="/register" element={ <Register /> }/>
        <Route path="/dashboard" element={ <Dashboard/> } />

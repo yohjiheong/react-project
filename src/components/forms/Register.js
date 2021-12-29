@@ -68,8 +68,12 @@ function Register() {
 
                 <Form.Item wrapperCol={{ offset: 7, span: 12, }} >
                     <Button htmltype="submit" onClick={onSubmitHandler} > Register </Button>
+                    <div className='text'>
+                        <Text italic>Have an account? <Link to="/login"> Login here! </Link> </Text>
+                    </div>
                 </Form.Item>
             </Form>
+
         </div>
     );
 }
