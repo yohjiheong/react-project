@@ -15,7 +15,7 @@ function Register() {
 
     var onSubmitHandler = (e) => {
         e.preventDefault()
-        fetch('https://yohji-project.herokuapp.comauth/register', {
+        fetch('https://yohji-project.herokuapp.com/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
