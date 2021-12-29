@@ -4,6 +4,8 @@ import moment from 'moment'
 import { Modal, notification } from 'antd';
 import { SmileOutlined } from '@ant-design/icons'
 
+import { Select } from 'antd';
+const { Option } = Select;
 
 
 function HistoryRecordNotes({data, getNotes}) {
@@ -77,6 +79,26 @@ function HistoryRecordNotes({data, getNotes}) {
         setIsDeleteModalVisible(false);
     };
 
+    var date = []
+    for(var i = 0; i < data.length; i++) {
+      date.push(data[i].date)
+    }
+    // console.log(date)
+    var setDate = new Set(date)
+    // console.log(setDate)
+
+    var uniqueDate = []
+    for(let x of setDate) {
+      uniqueDate.push(x)
+    }
+    // console.log(uniqueDate)
+  
+    const [selectedDate, setSelectDate] = useState({})
+    const onSelectHandler = (value) => {
+      setSelectDate(value)
+    }
+    // console.log(selectedDate)
+
     return (
         <div>
         <TableContainer>
@@ -84,7 +106,16 @@ function HistoryRecordNotes({data, getNotes}) {
 
               <TableHead>
                 <TableRow>
-                  <TableCell> Date </TableCell>
+                  <TableCell>
+                    <Select defaultValue="Date" style={{ width: 120 }} onChange={onSelectHandler} allowClear>
+                    {
+                      uniqueDate.map(
+                        result => 
+                        <Option key={result} value={result} >{result}</Option>
+                      )
+                    }
+                    </Select>
+                  </TableCell>
                   <TableCell align="left"> Notes </TableCell>
                   <TableCell></TableCell>
                   <TableCell align="right"> action </TableCell>
@@ -129,6 +160,41 @@ function HistoryRecordNotes({data, getNotes}) {
                     </TableRow>
                   )
                   : 
+                  (selectedDate === result.date) ?
+                  <>
+                  <TableRow
+                      key={result._id}
+                    >
+                        <TableCell component="th" scope="row"> {result.date} </TableCell>
+                        <TableCell align="left">{result.notes}</TableCell>
+                        <TableCell></TableCell>
+                        
+                        <TableCell align="right"> 
+                        {
+                            (result.date === currentDate) ? 
+                            <>
+                                <Button varaint="text" onClick={() => showEditModal(result._id)}> Edit </Button> 
+                                <Modal title="Basic Modal" visible={isEditModalVisible} onOk={() => handleEditOk(result._id)} onCancel={handleEditCancel} >
+                                    <form method='PUT'>
+                                        <textarea style={{"width":"35vw"}} onChange={onChangeEditHandler} name="notes" ></textarea>
+                                    </form>
+                                </Modal>
+                            </>
+                            : null
+                        }
+                        <>
+                            <Button varaint="text" onClick={() => showDeleteModal(result._id)}> Delete </Button> 
+                            <Modal title="Delete the note?" visible={isDeleteModalVisible} onOk={() => handleDeleteOk(result._id)} onCancel={handleDeleteCancel}>
+                                <p>Are you sure?</p>
+                            </Modal>
+                        </>
+                        </TableCell>
+                        
+                        <TableCell></TableCell>
+                    </TableRow>
+                  </>
+                    : 
+                  <>
                     <TableRow>
                         <TableCell></TableCell>
                         <TableCell></TableCell>
@@ -140,6 +206,7 @@ function HistoryRecordNotes({data, getNotes}) {
                         <TableCell></TableCell>
                         <TableCell></TableCell>
                     </TableRow>
+                  </>
                 }
               </TableBody>
 
