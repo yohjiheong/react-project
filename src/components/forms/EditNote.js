@@ -25,8 +25,8 @@ function EditNote({data, getNotes, noteId}) {
     }
   
     const handleEditOk = () => {
-        // console.log(`http://localhost:4000/notes/${noteId}`)
-        fetch('http://localhost:4000/notes/' + id, {
+        // console.log(`https://yohji-project.herokuapp.com/notes/${noteId}`)
+        fetch('https://yohji-project.herokuapp.com/notes/' + id, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ function EditNote({data, getNotes, noteId}) {
     
     const handleDeleteOk = () => {
         // alert(id)
-        fetch('http://localhost:4000/notes/' + id, {
+        fetch('https://yohji-project.herokuapp.com/notes/' + id, {
             method: "DELETE",
             headers: {
                 'x-auth-token': localStorage.getItem('token')

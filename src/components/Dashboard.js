@@ -9,7 +9,7 @@ function Dashboard() {
     const [note, setNote] = useState({})
 
     var getActivities = () => {
-        fetch('http://localhost:4000/exercise/user', {
+        fetch('https://yohji-project.herokuapp.com/exercise/user', {
             method:"GET",
             headers: {
                 "Content-Type": "application/json",
@@ -25,7 +25,7 @@ function Dashboard() {
     }
 
     var getNotes = () => {
-        fetch('http://localhost:4000/notes/user', {
+        fetch('https://yohji-project.herokuapp.com/notes/user', {
             method: "GET",
             headers: {
                 "Content-Type": 'application/json',

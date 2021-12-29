@@ -21,7 +21,7 @@ function Login({handleLogin}) {
     var onSubmitHandler = (e) => {
         e.preventDefault()
         // alert('working')
-        fetch('http://localhost:4000/auth/login', {
+        fetch('https://yohji-project.herokuapp.com/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

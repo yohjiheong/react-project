@@ -34,7 +34,7 @@ function HistoryRecordWorkouts({getActivities, data}) {
     }
   
     const handleEditOk = () => {
-        fetch('http://localhost:4000/exercise/' + id, {
+        fetch('https://yohji-project.herokuapp.com/exercise/' + id, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ function HistoryRecordWorkouts({getActivities, data}) {
     };
     
     const handleDeleteOk = () => {
-      fetch('http://localhost:4000/exercise/' + id, {
+      fetch('https://yohji-project.herokuapp.com/exercise/' + id, {
           method: "DELETE",
           headers: {
               'x-auth-token': localStorage.getItem('token')

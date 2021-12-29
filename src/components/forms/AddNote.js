@@ -17,7 +17,7 @@ function AddNote({data, getNotes}) {
     // console.log(notes)
 
     const noteSubmitHandler = () => {
-        fetch('http://localhost:4000/notes', {
+        fetch('https://yohji-project.herokuapp.com/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

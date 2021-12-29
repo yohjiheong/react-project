@@ -26,8 +26,8 @@ function HistoryRecordNotes({data, getNotes}) {
     }
   
     const handleEditOk = () => {
-        // console.log('http://localhost:4000/notes/' + id)
-        fetch('http://localhost:4000/notes/' + id, {
+        // console.log('https://yohji-project.herokuapp.com/notes/' + id)
+        fetch('https://yohji-project.herokuapp.com/notes/' + id, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ function HistoryRecordNotes({data, getNotes}) {
     
     const handleDeleteOk = () => {
         // alert(id)
-        fetch('http://localhost:4000/notes/' + id, {
+        fetch('https://yohji-project.herokuapp.com/notes/' + id, {
             method: "DELETE",
             headers: {
                 'x-auth-token': localStorage.getItem('token')

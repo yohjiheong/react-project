@@ -12,7 +12,7 @@ function FeedbackReply({data, id, getFeedback}) {
     // console.log(reply)
 
     const onSubmitHandler = (id) => {
-        fetch(`http://localhost:4000/feedback/${id}`, {
+        fetch(`https://yohji-project.herokuapp.com/feedback/${id}`, {
             method: 'POST',
             headers: {
                 'x-auth-token': localStorage.getItem('token'),

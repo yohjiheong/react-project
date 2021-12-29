@@ -119,7 +119,7 @@ function Graph({getActivities, activities}) {
 
     const onSubmitHandler = (e) => {
         e.preventDefault()
-        fetch('http://localhost:4000/exercise', {
+        fetch('https://yohji-project.herokuapp.com/exercise', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

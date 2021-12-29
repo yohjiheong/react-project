@@ -19,7 +19,7 @@ function ShowFeedback({data, getFeedback}) {
 
     var deleteHandler = (id) => {
         // alert(id)
-        fetch(`http://localhost:4000/feedback/${id}`, {
+        fetch(`https://yohji-project.herokuapp.com/feedback/${id}`, {
             method: "DELETE",
             headers: {
                 'x-auth-token': localStorage.getItem('token')

@@ -14,7 +14,7 @@ function Contact() {
     const [feedbacks, setFeedbacks] = useState([])
     
     var getFeedback = () => {
-        fetch('http://localhost:4000/feedback/', {
+        fetch('https://yohji-project.herokuapp.com/feedback/', {
             method: "GET"
         })
         .then(res => res.json())
@@ -39,7 +39,7 @@ function Contact() {
 
     const onSubmitHandler = (e) => {
         e.preventDefault()
-        fetch('http://localhost:4000/feedback', {
+        fetch('http://:4000/feedback', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ function Contact() {
     }
 
     var viewHandler = (id) => {
-        fetch(`http://localhost:4000/feedback/isViewed/${id}`, {
+        fetch(`https://yohji-project.herokuapp.com/feedback/isViewed/${id}`, {
             method: 'PUT',
             headers: {
                 'x-auth-token': localStorage.getItem('token')
@@ -90,7 +90,7 @@ function Contact() {
     // console.log(reply)
     
     const replySubmitHandler = (id) => {
-        fetch(`http://localhost:4000/feedback/${id}`, {
+        fetch(`https://yohji-project.herokuapp.com/feedback/${id}`, {
             method: 'POST',
             headers: {
                 'x-auth-token': localStorage.getItem('token'),
@@ -143,6 +143,7 @@ function Contact() {
                     </TabPane>
 
                     <TabPane tab="Sent" key="2">
+                    
                         <ShowFeedback getFeedback={getFeedback} data={feedbacks} />
                     </TabPane>
                 </Tabs>
