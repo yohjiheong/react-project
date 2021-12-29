@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button} from '@mui/material';
 import moment from 'moment'
 import { Modal, notification } from 'antd';
-import { SmileOutlined } from '@ant-design/icons'
+import { SmileOutlined, FrownOutlined } from '@ant-design/icons'
 
 import { Select } from 'antd';
 const { Option } = Select;
@@ -72,6 +72,12 @@ function HistoryRecordNotes({data, getNotes}) {
         .then(data => {
             getNotes()
             setIsDeleteModalVisible(false);
+            notification.open({
+                message: 'Aww!',
+                description:
+                  "Note Deleted!",
+                icon: <FrownOutlined style={{ color: '#108ee9' }} />,
+            });;
         })
     };
     

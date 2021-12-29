@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button} from '@mui/material';
 import { Modal, Input, notification } from 'antd';
-import { SmileOutlined } from '@ant-design/icons'
+import { SmileOutlined, FrownOutlined } from '@ant-design/icons'
 import moment from 'moment'
 
 import { Select } from 'antd';
@@ -75,7 +75,13 @@ function HistoryRecordWorkouts({getActivities, data}) {
       .then(res => res.json())
       .then(data => {
           getActivities()
-          setIsDeleteModalVisible(false)
+          setIsDeleteModalVisible(false);
+          notification.open({
+            message: 'Aww!',
+            description:
+              "Note Deleted!",
+            icon: <FrownOutlined style={{ color: '#108ee9' }} />,
+        });;
       });
     };
     
