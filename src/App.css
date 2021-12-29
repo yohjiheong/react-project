@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+.background {
+    background: url("./assets/bg2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navLink {
+    text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+    padding: 15px 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.input {
+    margin-top: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.text {
+    margin-top: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button {
+    background: none;
+    border: none;
+}
+
+.btn {
+    border-bottom: 1px solid black;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px 10px;
+    justify-content: center;
+}
+
+.cardItem {
+    margin: 10px 10px;
+}
+
+.notes {
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    margin: 20px 20px 20px 20px;
+    background-image: url('./assets/paper.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.notes .icon {
+    padding: 5px 5px 0px 0px;
+}
+
+.notes .noteContainer {
+    margin: 10px 0px;
+}
+
+.notes .noteContainer2 {
+    border-bottom: 1px dotted black;
+}
+
+.notes .noteHeader {
+    margin: 5px 5px;
+}
+
+.notes .noteText {
+    /* padding: 5px 0px; */
+    margin: 5px 10px;
+}
+
+.accordion {
+    margin: 0px 20px 0px 20px;
+    border: 1px solid lightgray;
+}
+
+.history {
+    margin: 10px 10px;
+}
+
+.feedback {
+    margin: 10px 10px;
 }
