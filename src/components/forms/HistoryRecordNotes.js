@@ -160,54 +160,57 @@ function HistoryRecordNotes({data, getNotes}) {
                     </TableRow>
                   )
                   : 
-                  (selectedDate === result.date) ?
-                  <>
-                  <TableRow
-                      key={result._id}
-                    >
-                        <TableCell component="th" scope="row"> {result.date} </TableCell>
-                        <TableCell align="left">{result.notes}</TableCell>
-                        <TableCell></TableCell>
-                        
-                        <TableCell align="right"> 
-                        {
-                            (result.date === currentDate) ? 
-                            <>
-                                <Button varaint="text" onClick={() => showEditModal(result._id)}> Edit </Button> 
-                                <Modal title="Basic Modal" visible={isEditModalVisible} onOk={() => handleEditOk(result._id)} onCancel={handleEditCancel} >
-                                    <form method='PUT'>
-                                        <textarea style={{"width":"35vw"}} onChange={onChangeEditHandler} name="notes" ></textarea>
-                                    </form>
-                                </Modal>
-                            </>
-                            : null
-                        }
+                  data.map( 
+                      result =>
+                      {
+                        (selectedDate === result.date) ?
                         <>
-                            <Button varaint="text" onClick={() => showDeleteModal(result._id)}> Delete </Button> 
-                            <Modal title="Delete the note?" visible={isDeleteModalVisible} onOk={() => handleDeleteOk(result._id)} onCancel={handleDeleteCancel}>
-                                <p>Are you sure?</p>
-                            </Modal>
+                        <TableRow
+                            key={result._id}
+                            >
+                                <TableCell component="th" scope="row"> {result.date} </TableCell>
+                                <TableCell align="left">{result.notes}</TableCell>
+                                <TableCell></TableCell>
+                                
+                                <TableCell align="right"> 
+                                {
+                                    (result.date === currentDate) ? 
+                                    <>
+                                        <Button varaint="text" onClick={() => showEditModal(result._id)}> Edit </Button> 
+                                        <Modal title="Basic Modal" visible={isEditModalVisible} onOk={() => handleEditOk(result._id)} onCancel={handleEditCancel} >
+                                            <form method='PUT'>
+                                                <textarea style={{"width":"35vw"}} onChange={onChangeEditHandler} name="notes" ></textarea>
+                                            </form>
+                                        </Modal>
+                                    </>
+                                    : null
+                                }
+                                <>
+                                    <Button varaint="text" onClick={() => showDeleteModal(result._id)}> Delete </Button> 
+                                    <Modal title="Delete the note?" visible={isDeleteModalVisible} onOk={() => handleDeleteOk(result._id)} onCancel={handleDeleteCancel}>
+                                        <p>Are you sure?</p>
+                                    </Modal>
+                                </>
+                                </TableCell>
+                                
+                                <TableCell></TableCell>
+                            </TableRow>
                         </>
-                        </TableCell>
-                        
-                        <TableCell></TableCell>
-                    </TableRow>
-                  </>
-                    : 
-                  <>
-                    <TableRow>
-                        <TableCell></TableCell>
-                        <TableCell></TableCell>
+                        : 
+                        <>
+                            <TableRow>
+                                <TableCell></TableCell>
+                                <TableCell></TableCell>
 
-                        <TableCell>
-                            <h3 align="center"> No data yet... </h3>
-                        </TableCell>
+                                <TableCell>
+                                    <h3 align="center"> No data yet... </h3>
+                                </TableCell>
 
-                        <TableCell></TableCell>
-                        <TableCell></TableCell>
-                    </TableRow>
-                  </>
-                }
+                                <TableCell></TableCell>
+                                <TableCell></TableCell>
+                            </TableRow>
+                        </>
+                })}
               </TableBody>
 
             </Table>
