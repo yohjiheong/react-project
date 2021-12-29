@@ -23,6 +23,8 @@ function EditNote({data, getNotes, noteId}) {
     const onChangeEditHandler = (e) => {
         setEditing({...edit, [e.target.name]: e.target.value})
     }
+
+    // :D
   
     const handleEditOk = () => {
         // console.log(`https://yohji-project.herokuapp.com/notes/${noteId}`)
