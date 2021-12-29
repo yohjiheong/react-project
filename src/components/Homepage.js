@@ -13,14 +13,9 @@ function Homepage() {
             setTimeout(textEffect, speed);
         }
     }
-
-    var styles = {
-        "display": "table-cell",
-        "vertical-align": "middle"
-    }
     
     return (
-        <div style={styles}>
+        <div className='homepage'>
             <h1 id="textEffect" align="center" > </h1>
             <p> Your personal fitness tracker! </p>
         </div>

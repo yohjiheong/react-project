@@ -6,6 +6,16 @@
     height: 100vh;
 }
 
+.homepage {
+    background: url("./assets/bg2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: "table-cell";
+    vertical-align: middle;
+}
+
 .navLink {
     text-decoration: none;
 }
