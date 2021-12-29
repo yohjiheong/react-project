@@ -39,7 +39,7 @@ function Contact() {
 
     const onSubmitHandler = (e) => {
         e.preventDefault()
-        fetch('http://:4000/feedback', {
+        fetch('https://yohji-project.herokuapp.com/feedback', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
