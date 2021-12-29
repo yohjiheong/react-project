@@ -115,7 +115,7 @@ function Graph({getActivities, activities}) {
     const onChangeHandler = (e) => {
         setExercise({...exercise, [e.target.name]: e.target.value})
     }
-    console.log(exercise)
+    // console.log(exercise)
 
     const onSubmitHandler = (e) => {
         e.preventDefault()
