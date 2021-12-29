@@ -6,10 +6,12 @@ function Homepage() {
     var txt = 'Welcome to Crossfit!';
     var speed = 50; /* The speed/duration of the effect in milliseconds */
 
-    if (i < txt.length) {
-        document.getElementById("textEffect").innerHTML += txt.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
+    var textEffect = () => {
+        if (i < txt.length) {
+            document.getElementById("textEffect").innerHTML += txt.charAt(i);
+            i++;
+            setTimeout(textEffect, speed);
+        }
     }
 
     var styles = {

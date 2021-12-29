@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom'
 import { Form, Input, Button, notification, Col, Typography } from 'antd';
 import { SmileOutlined, MehOutlined } from '@ant-design/icons';
 
 
-const {Title} = Typography
+const { Title, Text } = Typography
 
 
 function Register() {
