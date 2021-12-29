@@ -34,19 +34,19 @@ function FeedbackReply({data, id, getFeedback}) {
     //     }
     // }
 
-    var postId = [];
-    for (var i =0; i < reply.length; i++) {
-        console.log(reply[i].postId)
-        console.log(postId === id)
+    // var postId = [];
+    // for (var i =0; i < reply.length; i++) {
+        // console.log(reply[i].postId)
+        // console.log(postId === id)
         // console.log(reply[i] === id)
-    }
+    // }
     // console.log(postId)
 
 
-    var dataId = [];
-    for (var j=0; j<data.length; j++) {
-        dataId.push(data[j]._id)
-    }
+    // var dataId = [];
+    // for (var j=0; j<data.length; j++) {
+    //     dataId.push(data[j]._id)
+    // }
     // console.log(dataId)
 
 
@@ -71,7 +71,7 @@ function FeedbackReply({data, id, getFeedback}) {
                     <>
                         {
                             results.postId === id ?
-                                <p> Anonymous: {results.reply} </p> 
+                                <p> Anonymous : {results.reply} </p> 
                             : null
                         }
                     </>

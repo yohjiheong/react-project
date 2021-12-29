@@ -181,10 +181,10 @@ function Contact() {
                                     {
                                         result.replies.map(results => 
                                             <>
-                                            {console.log(results)}
+                                            {/* {console.log(results)} */}
                                                 {
                                                     results.postId === result._id ?
-                                                    <p> Anonymous: {results.reply} </p>
+                                                    <p> Anonymous : {results.reply} </p>
                                                     
                                                     : null
                                                 }
