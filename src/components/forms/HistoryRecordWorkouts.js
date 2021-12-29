@@ -134,7 +134,7 @@ function HistoryRecordWorkouts({getActivities, data}) {
                   check ? 
                   data.map(
                     result => 
-                      (!selectedDate) ? 
+                      (!selectedDate) ?  
                         <>
                           <TableRow key={result._id} >
   

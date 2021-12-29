@@ -128,44 +128,9 @@ function HistoryRecordNotes({data, getNotes}) {
                   getNotes ? 
                   data?.map(
                     result => 
-                    <TableRow
-                      key={result._id}
-                    >
-                        <TableCell component="th" scope="row"> {result.date} </TableCell>
-                        <TableCell align="left">{result.notes}</TableCell>
-                        <TableCell></TableCell>
-                        
-                        <TableCell align="right"> 
-                        {
-                            (result.date === currentDate) ? 
-                            <>
-                                <Button varaint="text" onClick={() => showEditModal(result._id)}> Edit </Button> 
-                                <Modal title="Basic Modal" visible={isEditModalVisible} onOk={() => handleEditOk(result._id)} onCancel={handleEditCancel} >
-                                    <form method='PUT'>
-                                        <textarea style={{"width":"35vw"}} onChange={onChangeEditHandler} name="notes" ></textarea>
-                                    </form>
-                                </Modal>
-                            </>
-                            : null
-                        }
+                    (!selectedDate) ?  
                         <>
-                            <Button varaint="text" onClick={() => showDeleteModal(result._id)}> Delete </Button> 
-                            <Modal title="Delete the note?" visible={isDeleteModalVisible} onOk={() => handleDeleteOk(result._id)} onCancel={handleDeleteCancel}>
-                                <p>Are you sure?</p>
-                            </Modal>
-                        </>
-                        </TableCell>
-                        
-                        <TableCell></TableCell>
-                    </TableRow>
-                  )
-                  : 
-                  data.map( 
-                      result =>
-                      {
-                        (selectedDate === result.date) ?
-                        <>
-                        <TableRow
+                            <TableRow
                             key={result._id}
                             >
                                 <TableCell component="th" scope="row"> {result.date} </TableCell>
@@ -196,7 +161,42 @@ function HistoryRecordNotes({data, getNotes}) {
                                 <TableCell></TableCell>
                             </TableRow>
                         </>
-                        : 
+                    : 
+                    (selectedDate === result.date) ?
+                    <>
+                        <TableRow key={result._id} >
+
+                            <TableCell component="th" scope="row"> {result.date} </TableCell>
+                            <TableCell align="left">{result.notes}</TableCell>
+                            <TableCell></TableCell>
+                                
+                            <TableCell align="right"> 
+                                {
+                                    (result.date === currentDate) ? 
+                                    <>
+                                        <Button varaint="text" onClick={() => showEditModal(result._id)}> Edit </Button> 
+                                        <Modal title="Basic Modal" visible={isEditModalVisible} onOk={() => handleEditOk(result._id)} onCancel={handleEditCancel} >
+                                            <form method='PUT'>
+                                                <textarea style={{"width":"35vw"}} onChange={onChangeEditHandler} name="notes" ></textarea>
+                                            </form>
+                                        </Modal>
+                                    </>
+                                    : null
+                                }
+
+                                <>
+                                    <Button varaint="text" onClick={() => showDeleteModal(result._id)}> Delete </Button> 
+                                    <Modal title="Delete the note?" visible={isDeleteModalVisible} onOk={() => handleDeleteOk(result._id)} onCancel={handleDeleteCancel}>
+                                        <p>Are you sure?</p>
+                                    </Modal>
+                                </>
+                            </TableCell>
+                                
+                            <TableCell></TableCell>
+                        </TableRow>
+                    </>
+                    : null ) 
+                    :
                         <>
                             <TableRow>
                                 <TableCell></TableCell>
@@ -210,7 +210,7 @@ function HistoryRecordNotes({data, getNotes}) {
                                 <TableCell></TableCell>
                             </TableRow>
                         </>
-                })}
+                    }
               </TableBody>
 
             </Table>
