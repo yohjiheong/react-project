@@ -25,7 +25,8 @@ function EditNote({data, getNotes, noteId}) {
     }
 
     // :D
-  
+    // to commit changes
+
     const handleEditOk = () => {
         // console.log(`https://yohji-project.herokuapp.com/notes/${noteId}`)
         fetch('https://yohji-project.herokuapp.com/notes/' + id, {
